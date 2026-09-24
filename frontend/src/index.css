@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap");
+@import "tailwindcss";
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #17221f;
+  --color-muted: #7c8984;
+  --color-line: #e8eeeb;
+  --color-mint: #cdf5de;
+  --color-forest: #246b4a;
+  --color-paper: #f8fbf9;
+  --color-brand-deep: #064e3b;
+  --color-brand: #059669;
+  --color-brand-soft: #a7f3d0;
+  --color-hero: #065f46;
+  --color-teal: #2dd4bf;
+}
+:root {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  color: #17221f;
+  background: #f8fbf9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(circle at 92% 8%, rgb(45 212 191 / 0.08), transparent 26rem), #f8fbf9;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+.font-display {
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+.brand-gradient { background: linear-gradient(135deg, #064e3b 0%, #059669 58%, #a7f3d0 125%); }
+.hero-gradient { background: linear-gradient(120deg, #065f46 0%, #10b981 100%); }
+.income-gradient { background: linear-gradient(135deg, #047857 0%, #6ee7b7 125%); }
+.savings-gradient { background: linear-gradient(135deg, #134e4a 0%, #2dd4bf 115%); }
+.accent-gradient { background: linear-gradient(135deg, #134e4a 0%, #2dd4bf 100%); }
