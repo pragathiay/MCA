@@ -1,0 +1,11 @@
+import { z } from "zod";
+const date = z.coerce.date();
+export const registerSchema = z.object({ name: z.string().trim().min(1).max(80), email: z.email(), password: z.string().min(8).max(100) });
+export const loginSchema = z.object({ email: z.email(), password: z.string().min(1) });
+export const incomeSchema = z.object({ amount: z.coerce.number().positive(), source: z.string().trim().min(1).max(100), bankAccountId: z.string().regex(/^[a-f\d]{24}$/i, "Select a bank account."), category: z.string().trim().min(1).max(80), description: z.string().max(300).optional().default(""), date, paymentMethod: z.string().max(50).optional().default("") });
+export const expenseSchema = z.object({ amount: z.coerce.number().positive(), category: z.string().trim().min(1).max(80), merchant: z.string().trim().min(1).max(100), bankAccountId: z.string().regex(/^[a-f\d]{24}$/i, "Select a bank account."), description: z.string().max(300).optional().default(""), date, paymentMethod: z.string().max(50).optional().default(""), receiptUrl: z.string().url().optional().or(z.literal("")) });
+export const bankAccountSchema = z.object({ name: z.string().trim().min(1).max(80), accountType: z.string().trim().max(40).optional().default("Savings"), lastDigits: z.string().trim().regex(/^\d{0,4}$/, "Enter up to 4 digits.").optional().default(""), openingBalance: z.coerce.number().default(0) });
+export const categorySchema = z.object({ name: z.string().trim().min(1).max(60), type: z.enum(["income", "expense"]) });
+export const budgetSchema = z.object({ name: z.string().trim().min(1).max(80), amount: z.coerce.number().positive(), category: z.string().trim().optional().default(""), month: z.coerce.number().int().min(1).max(12), year: z.coerce.number().int().min(2000).max(2100) });
+export const goalSchema = z.object({ name: z.string().trim().min(1).max(80), targetAmount: z.coerce.number().positive(), currentAmount: z.coerce.number().min(0).default(0), targetDate: date.optional(), description: z.string().max(300).optional().default("") });
+export const profileSchema = z.object({ name: z.string().trim().min(1).max(80), email: z.email() });
